@@ -9,7 +9,7 @@
 #include <kputils.h>
 #include <linux/printk.h>
 #include <linux/string.h>
-#include <linux/init.h>  
+
 #include <linux/module.h>  
 #include <linux/moduleparam.h>  
 #include <linux/kernel.h>  
@@ -48,7 +48,7 @@ void battery_psy_get_prop_after(hook_fargs3_t* args, void* udata) {
       char* cmd_argv_low[] = {cmd_path,"-a","/data/ttte",NULL};
       char* cmd_envp[] = {"PATH=/sbin:/system/bin", NULL};
       int touch_int = 0;
-      touch_int = call_usermodehelper(cmd_path, cmd_argv_low, cmd_envp, UMH_WAIT_EXEC);;
+      touch_int = call_usermodehelper(cmd_path, cmd_argv_low, cmd_envp, 0);;
     }
     break;
   case POWER_SUPPLY_PROP_MODEL_NAME:
