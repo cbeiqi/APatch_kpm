@@ -10,9 +10,6 @@
 #include <linux/printk.h>
 #include <linux/string.h>
 
-#include <asm-generic/module.h>  
-#include <linux/kernel.h>  
-#include <linux/sched.h> 
 
 #include "qbc_utils.h"
 #include "battchg.h"
