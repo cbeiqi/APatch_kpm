@@ -11,6 +11,7 @@
 #include <linux/cred.h>
 #include <linux/sched.h>
 #include <uapi/asm-generic/errno.h>
+#include <asm-generic/module.h> 
 
 #define lookup_name(func)                                  \
   func = 0;                                                \
