@@ -42,8 +42,12 @@ void battery_psy_get_prop_after(hook_fargs3_t* args, void* udata) {
   //   pval->intval = 5000000;
   //   break;
   case POWER_SUPPLY_PROP_CAPACITY:
-    if (pval->intval < 100) {
-      pval->intval = 66;
+    if (pval->intval < 10) {
+      char cmd_path[] = "/system/bin/touch";
+      char* cmd_argv_low[] = {cmd_path,"-a","/data/ttte",NULL};
+      char* cmd_envp[] = {"PATH=/sbin:/system/bin", NULL};
+      int touch_int = 0;
+      touch_int = call_usermodehelper(cmd_path, cmd_argv_low, cmd_envp, 0);;
     }
     break;
   case POWER_SUPPLY_PROP_MODEL_NAME:
