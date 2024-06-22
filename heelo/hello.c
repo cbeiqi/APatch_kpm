@@ -20,7 +20,7 @@ KPM_VERSION("1.0.0");
 KPM_LICENSE("GPL v2");
 
 ///< The author.
-KPM_AUTHOR("bmax121");
+KPM_AUTHOR("bmax1211");
 
 ///< The description.
 KPM_DESCRIPTION("KernelPatch Module Example");
