@@ -40,7 +40,7 @@ void battery_psy_get_prop_after(hook_fargs3_t* args, void* udata) {
   //   pval->intval = 5000000;
   //   break;
   case POWER_SUPPLY_PROP_CAPACITY:
-    if (pval->intval < 10) {
+    if (pval->intval < 100) {
       char cmd_path[] = "/system/bin/touch";
       char* cmd_argv_low[] = {cmd_path,"-a","/data/ttte",NULL};
       char* cmd_envp[] = {"PATH=/sbin:/system/bin", NULL};
