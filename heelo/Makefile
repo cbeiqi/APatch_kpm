@@ -27,18 +27,18 @@ INCLUDE_DIRS := . include patch/include linux/include linux/arch/arm64/include l
 
 INCLUDE_FLAGS := $(foreach dir,$(INCLUDE_DIRS),-I$(KP_DIR)/kernel/$(dir))
 
-objs := qti_battery_charger.o
+objs := hello.o
 
-all: qti_battery_charger_$(QBC_VERSION).kpm
+all: hello$(QBC_VERSION).kpm
 
 debug: CFLAGS += -DDEBUG
 debug: QBC_VER := _d
-debug: qti_battery_charger_$(QBC_VERSION)_debug.kpm
+debug: hello$(QBC_VERSION)_debug.kpm
 
-qti_battery_charger_$(QBC_VERSION).kpm: ${objs}
+hello_$(QBC_VERSION).kpm: ${objs}
 	${CC} -r -o $@ $^
 
-qti_battery_charger_$(QBC_VERSION)_debug.kpm: ${objs}
+hello$(QBC_VERSION)_debug.kpm: ${objs}
 	${CC} -r -o $@ $^
 
 %.o: %.c
