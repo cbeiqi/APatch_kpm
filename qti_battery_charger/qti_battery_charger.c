@@ -9,6 +9,7 @@
 #include <kputils.h>
 #include <linux/printk.h>
 #include <linux/string.h>
+#include <linux/stddef.h>
 
 
 #include "qbc_utils.h"
