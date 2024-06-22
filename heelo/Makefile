@@ -1,4 +1,4 @@
-QBC_VERSION := 1.0.2
+HR_VERSION := 1.2.0
 
 ifndef KP_DIR
     KP_DIR = ../KernelPatch
@@ -21,24 +21,24 @@ else ifdef NDK_PATH
     LD := $(NDK_PATH)/ld.lld
 endif
 
-CFLAGS = -Wall -O2 -fno-PIC -fno-asynchronous-unwind-tables -fno-stack-protector -fno-common -DQBC_VERSION=\"$(QBC_VERSION)$(QBC_VER)\"
+CFLAGS = -Wall -O2 -fno-PIC -fno-asynchronous-unwind-tables -fno-stack-protector -fno-common -DHR_VERSION=\"$(HR_VERSION)$(HR_VER)\"
 
-INCLUDE_DIRS := . include patch/include linux/include linux/arch/arm64/include linux/tools/arch/arm64/include 
+INCLUDE_DIRS := . include patch/include linux/include linux/arch/arm64/include linux/tools/arch/arm64/include
 
 INCLUDE_FLAGS := $(foreach dir,$(INCLUDE_DIRS),-I$(KP_DIR)/kernel/$(dir))
 
 objs := hello.o
 
-all: hello$(QBC_VERSION).kpm
+all: hello_$(HR_VERSION).kpm
 
 debug: CFLAGS += -DDEBUG
-debug: QBC_VER := _d
-debug: hello$(QBC_VERSION)_debug.kpm
+debug: HR_VER := _d
+debug: hello_$(HR_VERSION)_debug.kpm
 
-hello_$(QBC_VERSION).kpm: ${objs}
+hello_$(HR_VERSION).kpm: ${objs}
 	${CC} -r -o $@ $^
 
-hello$(QBC_VERSION)_debug.kpm: ${objs}
+hello_$(HR_VERSION)_debug.kpm: ${objs}
 	${CC} -r -o $@ $^
 
 %.o: %.c
