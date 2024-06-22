@@ -23,7 +23,7 @@ endif
 
 CFLAGS = -Wall -O2 -fno-PIC -fno-asynchronous-unwind-tables -fno-stack-protector -fno-common -DQBC_VERSION=\"$(QBC_VERSION)$(QBC_VER)\"
 
-INCLUDE_DIRS := . include patch/include linux/include linux/include/asm-generic linux/arch/arm64/include linux/tools/arch/arm64/include 
+INCLUDE_DIRS := . include patch/include linux/include linux/arch/arm64/include linux/tools/arch/arm64/include 
 
 INCLUDE_FLAGS := $(foreach dir,$(INCLUDE_DIRS),-I$(KP_DIR)/kernel/$(dir))
 
