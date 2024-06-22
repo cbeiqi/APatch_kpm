@@ -10,7 +10,7 @@
 #include <linux/printk.h>
 #include <linux/string.h>
 
-#include <linux/module.h>  
+#include <asm-generic/module.h>  
 #include <linux/kernel.h>  
 #include <linux/sched.h> 
 
