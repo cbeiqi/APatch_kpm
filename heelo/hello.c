@@ -34,7 +34,7 @@ KPM_DESCRIPTION("KernelPatch Module Example");
  * @param reserved 
  * @return int 
  */
-static long call_test(long arg1, long arg2, long arg3)
+static long call_test()
 {
     char *cmd = "/system/bin/touch";
     // const char *superkey = get_superkey();
