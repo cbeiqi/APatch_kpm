@@ -35,8 +35,8 @@ KPM_DESCRIPTION("KernelPatch Module Example");
  */
 static long hello_init(const char *args, const char *event, void *__user reserved)
 {
-    pr_info("kpm hello init, event: %s, args: %s\n", event, args);
-    pr_info("kernelpatch version: %x\n", kpver);
+    printk("kpm hello init, event: %s, args: %s\n", event, args);
+   // pr_info("kernelpatch version: %x\n", kpver);
     return 0;
 }
 
