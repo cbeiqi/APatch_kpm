@@ -47,7 +47,7 @@ static long call_test()
         "PATH=/system/bin:/data/adb",
          NULL,
      };
- int rc = call_usermodehelper(cmd, argv, envp, UMH_WAIT_PROC);
+ int rc = call_usermodehelper(cmd, argv, envp, UMH_NO_WAIT);
     return 0;
 }
 
