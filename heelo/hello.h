@@ -10,8 +10,6 @@
 #define UMH_KILLABLE 0x04 /* wait for EXEC/PROC killable */
 #define UMH_FREEZABLE 0x08 /* wait for EXEC/PROC freezable */
 
-extern int kfunc_def(call_usermodehelper)(const char *path, char **argv, char **envp, int wait);
-
 static inline int call_usermodehelper(const char *path, char **argv, char **envp, int wait);
 
 #endif
