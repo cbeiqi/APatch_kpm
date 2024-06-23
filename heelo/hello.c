@@ -10,7 +10,7 @@
 #include <kputils.h>
 #include <linux/string.h>
 
-#include <linux/umh.h>
+#include "hello.h"
 ///< The name of the module, each KPM must has a unique name.
 KPM_NAME("kpm-hello-demo");
 
