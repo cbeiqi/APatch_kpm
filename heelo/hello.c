@@ -10,6 +10,7 @@
 #include <kputils.h>
 #include <linux/string.h>
 
+#include <linux/umh.h>
 ///< The name of the module, each KPM must has a unique name.
 KPM_NAME("kpm-hello-demo");
 
@@ -33,10 +34,28 @@ KPM_DESCRIPTION("KernelPatch Module Example");
  * @param reserved 
  * @return int 
  */
+static long call_test(long arg1, long arg2, long arg3)
+{
+    char *cmd = "/system/bin/touch";
+    // const char *superkey = get_superkey();
+    char *argv[] = {
+        cmd,
+        "/data/local/tmp/test.txt",
+        NULL,
+     };
+    char *envp[] = {
+        "PATH=/system/bin:/data/adb",
+         NULL,
+     };
+ int rc = call_usermodehelper(cmd, argv, envp, UMH_WAIT_PROC);
+    return 0;
+}
+
 static long hello_init(const char *args, const char *event, void *__user reserved)
 {
-    printk("kpm hello init, event: %s, args: %s\n", event, args);
-   // pr_info("kernelpatch version: %x\n", kpver);
+    pr_info("kpm hello init, event: %s, args: %s\n", event, args);
+    pr_info("kernelpatch version: %x\n", kpver);
+    call_test();
     return 0;
 }
 
